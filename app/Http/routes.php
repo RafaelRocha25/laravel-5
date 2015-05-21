@@ -13,7 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('example', 'WelcomeController@example');
+Route::get('admin/categories', 'AdminCategoriesController@index');
+
+Route::get('admin/products', 'AdminProductsController@index');
 
 Route::get('home', 'HomeController@index');
 

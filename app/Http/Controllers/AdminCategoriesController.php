@@ -1,8 +1,8 @@
-<?php namespace CodeComerce\Http\Controllers;
+<?php namespace CodeCommerce\Http\Controllers;
 
-use CodeComerce\Category;
-use CodeComerce\Http\Requests;
-use CodeComerce\Http\Controllers\Controller;
+use CodeCommerce\Category;
+use CodeCommerce\Http\Requests;
+use CodeCommerce\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 

@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: CodeComerce
-        psr4_prefix: CodeComerce
+        namespace: CodeCommerce
+        psr4_prefix: CodeCommerce
         src_path: app

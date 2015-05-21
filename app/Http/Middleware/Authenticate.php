@@ -1,4 +1,4 @@
-<?php namespace CodeComerce\Http\Middleware;
+<?php namespace CodeCommerce\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

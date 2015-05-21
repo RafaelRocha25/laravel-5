@@ -1,6 +1,6 @@
-<?php namespace CodeComerce\Http\Controllers\Auth;
+<?php namespace CodeCommerce\Http\Controllers\Auth;
 
-use CodeComerce\Http\Controllers\Controller;
+use CodeCommerce\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;

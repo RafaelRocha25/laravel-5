@@ -1,9 +1,9 @@
-<?php namespace CodeComerce\Http\Controllers;
+<?php namespace CodeCommerce\Http\Controllers;
 
-use CodeComerce\Http\Requests;
-use CodeComerce\Http\Controllers\Controller;
+use CodeCommerce\Http\Requests;
+use CodeCommerce\Http\Controllers\Controller;
 
-use CodeComerce\Product;
+use CodeCommerce\Product;
 use Illuminate\Http\Request;
 
 class AdminProductsController extends Controller {

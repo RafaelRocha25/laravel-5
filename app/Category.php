@@ -1,4 +1,4 @@
-<?php namespace CodeComerce;
+<?php namespace CodeCommerce;
 
 use Illuminate\Database\Eloquent\Model;
 

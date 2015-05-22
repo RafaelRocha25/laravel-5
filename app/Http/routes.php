@@ -13,6 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::get('/categories', 'CategoriesController@index');
+
+/*
 Route::pattern('id', '[0-9]+');
 
 Route::group(['prefix' => 'admin'], function() {
@@ -37,6 +40,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('store', ['as' => 'categories-store', 'uses' => 'AdminCategoriesController@store']);
     });
 });
+*/
 
 
 Route::get('home', 'HomeController@index');

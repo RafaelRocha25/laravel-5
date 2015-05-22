@@ -1,4 +1,4 @@
-@extends('app')
+@extends('......app')
 
 @section('content')
 <h1>List Categories</h1>

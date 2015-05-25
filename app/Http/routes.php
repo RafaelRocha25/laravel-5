@@ -11,12 +11,18 @@
 |
 */
 
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/categories', 'CategoriesController@index');
+Route::group(['prefix' => 'categories'], function() {
+    Route::get('/', ['as' => 'categories' , 'uses' => 'CategoriesController@index']);
+    Route::post('/', ['as' => 'categories.store', 'uses' => 'CategoriesController@store']);
+    Route::get('/create', ['as' => 'categories.create' , 'uses' => 'CategoriesController@create']);
+    Route::get('/{id}/destroy', ['as' => 'categories.destroy', 'uses' => 'CategoriesController@destroy']);
+});
 
 /*
-Route::pattern('id', '[0-9]+');
 
 Route::group(['prefix' => 'admin'], function() {
 

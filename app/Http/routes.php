@@ -22,6 +22,13 @@ Route::group(['prefix' => 'categories'], function() {
     Route::get('/{id}/destroy', ['as' => 'categories.destroy', 'uses' => 'CategoriesController@destroy']);
 });
 
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/', ['as' => 'products' , 'uses' => 'ProductsController@index']);
+    Route::post('/', ['as' => 'products.store', 'uses' => 'ProductsController@store']);
+    Route::get('/create', ['as' => 'products.create' , 'uses' => 'ProductsController@create']);
+    Route::get('/{id}/destroy', ['as' => 'products.destroy', 'uses' => 'ProductsController@destroy']);
+});
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([

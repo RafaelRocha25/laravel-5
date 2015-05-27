@@ -34,6 +34,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ route('categories') }}">Categories</a></li>
+					<li><a href="{{ route('products') }}">Products</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -59,5 +61,29 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        featured  = $("#featured");
+        recommend = $("#recommend");
+
+
+        featured.click(function() {
+            if(featured.val() == 'on')
+                featured.val('off');
+            else
+                featured.val('on')
+        });
+
+        recommend.click(function() {
+            if(recommend.val() == 'on')
+                recommend.val('off');
+            else
+                recommend.val('on')
+        });
+
+    });
+</script>
 </body>
 </html>

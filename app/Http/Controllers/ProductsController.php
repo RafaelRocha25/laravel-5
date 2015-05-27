@@ -65,18 +65,34 @@ class ProductsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+
+        $product = $this->productModel->find($id);
+
+        return view('products.edit', compact('product'));
+
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  Request ProductRequest int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Requests\ProductRequest $request ,$id)
 	{
-		//
+        $data = $request->all();
+
+        if(!isset($data['featured'])) {
+            $data['featured'] = 'off';
+        }
+        if(!isset($data['recommend'])) {
+            $data['recommend'] = 'off';
+        }
+
+        $this->productModel->find($id)->update($data);
+
+        return redirect()->route('products');
+
 	}
 
 	/**

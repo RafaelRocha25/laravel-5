@@ -3,10 +3,10 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-use CodeCommerce\Category;
+use CodeCommerce\Product;
 use Faker\Factory as Faker;
 
-class CategoryTableSeeder extends Seeder {
+class ProductTableSeeder extends Seeder {
 
     /**
      * Run the database seeds.
@@ -16,14 +16,18 @@ class CategoryTableSeeder extends Seeder {
     public function run()
     {
 
-        DB::table('categories')->truncate();
+        DB::table('products')->truncate();
 
         $faker = Faker::create();
 
-        foreach(range(1, 15) as $i) {
-            Category::create([
-                'name' => $faker->word(),
-                'description' => $faker->sentence()
+        foreach(range(1, 40) as $i) {
+            Product::create([
+                'name'        => $faker->word(),
+                'description' => $faker->sentence(),
+                'price'       => $faker->randomNumber(2),
+                'featured'    => $faker->boolean(),
+                'recommend'   => $faker->boolean(),
+                'category_id' => $faker->numberBetween(1, 15)
             ]);
         }
     }

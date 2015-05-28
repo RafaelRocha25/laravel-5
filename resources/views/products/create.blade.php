@@ -15,6 +15,11 @@
     {!! Form::open(['url' => 'products']) !!}
 
         <div class="form-group">
+            {!! Form::label('category', 'Category:') !!}
+            {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
         </div>
@@ -32,9 +37,7 @@
         <div class="form-group">
             {!! Form::label('featured', 'Featured:') !!}
             {!! Form::checkbox('featured', null, true) !!}
-        </div>
 
-        <div class="form-group">
             {!! Form::label('recommend', 'Recomend:') !!}
             {!! Form::checkbox('recommend', null, true) !!}
         </div>

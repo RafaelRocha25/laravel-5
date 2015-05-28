@@ -19,12 +19,15 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                    <a href="{{route('categories.edit', $category->id)}}">Edit</a>
+                    <a href="{{route('categories.edit', $category->id)}}">Edit</a> |
                     <a href="{{route('categories.destroy', $category->id)}}">Delete</a>
                 </td>
             </tr>
         @endforeach
     </table>
+
+    {!! $categories->render() !!}
+
 </div>
 @endsection
 

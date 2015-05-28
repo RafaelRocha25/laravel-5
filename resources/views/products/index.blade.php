@@ -23,6 +23,7 @@
                 <td>{{ str_limit($product->description, $limit = 100, $end = '...') }}</td>
                 <td>{{ $product->category->name }}</td>
                 <td>
+                    <a href="{{route('products.images', $product->id)}}">Images</a> |
                     <a href="{{route('products.edit', $product->id)}}">Edit</a> |
                     <a href="{{route('products.destroy', $product->id)}}">Delete</a>
                 </td>

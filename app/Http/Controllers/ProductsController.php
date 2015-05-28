@@ -141,7 +141,7 @@ class ProductsController extends Controller {
     public function storeImage(Request $request, $id, ProductImage $productImage)
     {
 
-        $file = $request->file('image');
+        $file      = $request->file('image');
         $extension = $file->getClientOriginalExtension();
 
         $image = $productImage::create(['product_id' => $id, 'extension' => $extension]);

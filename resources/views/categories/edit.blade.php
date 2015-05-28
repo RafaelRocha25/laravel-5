@@ -30,5 +30,7 @@
 
     {!! Form::close() !!}
 
+    <a href="{{route('categories')}}" class="btn btn-default">Voltar</a>
+
 </div>
 @endsection

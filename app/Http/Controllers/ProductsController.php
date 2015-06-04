@@ -9,16 +9,19 @@ use CodeCommerce\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Psy\Exception\FatalErrorException;
 
 class ProductsController extends Controller {
 
     private $productModel;
     private $categoryModel;
+    private $productImage;
 
-    public function __construct(Product $product, Category $category)
+    public function __construct(Product $product, Category $category, ProductImage $productImage)
     {
         $this->productModel  = $product;
         $this->categoryModel = $category;
+        $this->productImage  = $productImage;
     }
 
 	/**
@@ -106,14 +109,27 @@ class ProductsController extends Controller {
 
 	/**
 	 * Remove the specified resource from storage.
-	 *
+	 * Remove images specified the product
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
+        $product = $this->productModel->find($id);
 
-        $this->productModel->find($id)->delete();
+
+        foreach($product->images as $img) {
+
+            //remove files
+            if(file_exists(public_path() . '/uploads/'.$img->id.'.'.$img->extension)) {
+                Storage::disk('public_local')->delete($img->id . '.' . $img->extension);
+            }
+
+            //delete registers
+            $this->productImage->find($img->id)->delete();
+        }
+
+        $product->delete();
 
         return redirect()->route('products');
 
@@ -153,10 +169,10 @@ class ProductsController extends Controller {
     }
 
 
-    public function destroyImage(ProductImage $productImage, $id)
+    public function destroyImage($id)
     {
 
-        $image = $productImage->find($id);
+        $image = $this->productImage->find($id);
 
         if(file_exists(public_path() . '/uploads/'.$image->id.'.'.$image->extension)) {
             Storage::disk('public_local')->delete($image->id . '.' . $image->extension);
